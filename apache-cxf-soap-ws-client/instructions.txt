@@ -1,0 +1,34 @@
+$mvn clean package
+
+Add into tomcat and start the server
+
+Provider ::
+
+http://localhost:8089/apache-cxf-soap-ws-provider/services
+
+Available SOAP services:
+
+Operations
+�add
+�sub
+ Endpoint address: http://localhost:8089/apache-cxf-soap-ws-provider/services/op
+WSDL : {http://ws.soap.cxf.com/}OperationsImplService
+Target namespace: http://ws.soap.cxf.com/ 
+
+http://localhost:8089/apache-cxf-soap-ws-provider/services/op?wsdl
+
+save this wsdl for client program-
+
+Client ::
+open soapUI and pass wsdl url or wsdl file path for new soap project
+
+To create JAVA client -
+1. create new folder 
+2. open command prompt
+3. run the below command to generate the classes for client
+ $ wsimport -keep http://localhost:8089/apache-cxf-soap-ws-provider/services/op?wsdl
+ or
+ $ wsimport -keep <absolute .wsdl file path>
+ 
+ 4. create new maven project and copy these classes there and create client App with main method to run this operations
+
